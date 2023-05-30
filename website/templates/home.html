@@ -24,9 +24,16 @@
       <p class="mt-5 text-gray-400 text-md">Know exactly how you perform compared to your monthly targets.
 Organize your work based on your scheduled next actions.</p>
       <div class="mt-5 flex flex-row items-center gap-2">
-            <a class="py-3 px-6 bg-black text-gray-100 text-xl md:text-2xl lg:text-2xl   font-extralight hover:shadow-lg hover:bg-white hover:border-2 hover:border-black hover:text-black" href="">Sign Up</a>
-            <a class="py-3 px-6 bg-white text-xl md:text-2xl lg:text-2xl  text-black border-2 border-black  font-extralight hover:shadow-lg hover:bg-black   hover:text-white " href="">Contact Support</a>
-      </div>
+         {% if user.is_authenticated %}
+     <a class="py-3 px-6 bg-black text-gray-100 text-md  border-2 border-black   font-semibold hover:shadow-lg hover:bg-white hover:border-2 hover:border-black hover:text-black" href="{% url 'dashboard' %}">Dashboard</a>
+            <a class="py-3 px-6 bg-white text-md    text-black border-2 border-black  font-semibold hover:shadow-lg hover:bg-black   hover:text-white " href="">Contact Support</a>
+     
+    {% else %}
+      <a class="py-3 px-6 bg-black text-gray-100 text-md  border-2 border-black   font-semibold hover:shadow-lg hover:bg-white hover:border-2 hover:border-black hover:text-black" href="{% url 'register' %}">Sign Up</a>
+            <a class="py-3 px-6 bg-white text-md    text-black border-2 border-black  font-semibold hover:shadow-lg hover:bg-black   hover:text-white " href="">Contact Support</a>
+     
+    {% endif %}
+             </div>
     </div>
   </div>
 </section>
