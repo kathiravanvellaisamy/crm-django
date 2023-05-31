@@ -1,0 +1,116 @@
+{% extends 'base.html' %} {% block content %}
+<section class="p-8 lg:p-16 mt-5">
+  <div class="mt-1 border-b border-gray-300 py-2">
+    <h1 class="text-3xl font-semibold text-orange-900 py-2">
+      {{ customer_profile }}'s Information
+    </h1>
+
+    <div
+      class="mt-5 border rounded-md border-gray-300 mx-auto w-full lg:w-[600px] container relative"
+    >
+      <div class="flex flex-row gap-1 items-center">
+        <div
+          class="m-2 w-1/2 border border-gray-200 bg-gray-100 font-semibold shaddow rounded-md p-1"
+        >
+          First Name
+        </div>
+        <div class="m-2 w-1/2 border border-gray-200 shaddow rounded-md p-1">
+          {{ customer_profile.first_name }}
+        </div>
+      </div>
+      <div class="flex flex-row gap-1 items-center">
+        <div
+          class="m-2 w-1/2 border border-gray-200 bg-gray-100 font-semibold shaddow rounded-md p-1"
+        >
+          Last Name
+        </div>
+        <div class="m-2 w-1/2 border border-gray-200 shaddow rounded-md p-1">
+          {{ customer_profile.last_name }}
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-1 items-center">
+        <div
+          class="m-2 w-1/2 border border-gray-200 bg-gray-100 font-semibold shaddow rounded-md p-1"
+        >
+          Email
+        </div>
+        <div class="m-2 w-1/2 border border-gray-200 shaddow rounded-md p-1">
+          {{ customer_profile.email }}
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-1 items-center">
+        <div
+          class="m-2 w-1/2 border border-gray-200 bg-gray-100 font-semibold shaddow rounded-md p-1"
+        >
+          Phone
+        </div>
+        <div class="m-2 w-1/2 border border-gray-200 shaddow rounded-md p-1">
+          {{ customer_profile.phone }}
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-1 items-center">
+        <div
+          class="m-2 w-1/2 border border-gray-200 bg-gray-100 font-semibold shaddow rounded-md p-1"
+        >
+          Address
+        </div>
+        <div class="m-2 w-1/2 border border-gray-200 shaddow rounded-md p-1">
+          {{ customer_profile.address }}
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-1 items-center">
+        <div
+          class="m-2 w-1/2 border border-gray-200 bg-gray-100 font-semibold shaddow rounded-md p-1"
+        >
+          City
+        </div>
+        <div class="m-2 w-1/2 border border-gray-200 shaddow rounded-md p-1">
+          {{ customer_profile.city }}
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-1 items-center">
+        <div
+          class="m-2 w-1/2 border border-gray-200 bg-gray-100 font-semibold shaddow rounded-md p-1"
+        >
+          Country
+        </div>
+        <div class="m-2 w-1/2 border border-gray-200 shaddow rounded-md p-1">
+          {{ customer_profile.country }}
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-1 items-center">
+        <div
+          class="m-2 w-1/2 border border-gray-200 bg-gray-100 font-semibold shaddow rounded-md p-1"
+        >
+          Zip Code
+        </div>
+        <div class="m-2 w-1/2 border border-gray-200 shaddow rounded-md p-1">
+          {{ customer_profile.zipcode }}
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-1 items-center">
+        <div
+          class="m-2 w-1/2 border border-gray-200 bg-gray-100 font-semibold shaddow rounded-md p-1"
+        >
+          Created on
+        </div>
+        <div class="m-2 w-1/2 border border-gray-200 shaddow rounded-md p-1">
+          {{ customer_profile.created_At }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="px-8 lg:px-16 mb-5">
+  <a href="" class="py-3 px-6 bg-indigo-600 text-white rounded-md"
+    >Back to Dashboard</a
+  >
+</div>
+{% endblock %}

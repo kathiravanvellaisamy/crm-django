@@ -1,20 +1,58 @@
 {% extends 'base.html' %} {% block content %}
 <section class="p-8 lg:p-16 mt-10">
   <h1 class="text-4xl lg:text-6xl text-slate-700 font-extralight">
-    Hi User Welcome back!
+    Hi {{request.user.username}} Welcome back!
   </h1>
   <div class="mt-5 border-t border-gray-300 py-2">
     <h1 class="text-3xl font-semibold text-orange-900 py-2">
-      What does CRM do?
+      Customer Information
     </h1>
-    <ul class="ml-12 mt-5 list-disc">
-      <li>Actively tracks and manages customer information.</li>
-      <li>Connects your entire team from any device.</li>
-      <li>Intelligently captures customer emails.</li>
-      <li>Simplifies repetitive tasks so you can concentrate on leads.</li>
-      <li>Delivers instant insights and recommendations.</li>
-      <li>Extends and customises as your business grows.</li>
-    </ul>
+    {% if customers%}
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-5">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead
+          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+        >
+          <tr>
+            <th scope="col" class="px-6 py-3">Id</th>
+            <th scope="col" class="px-6 py-3">Name</th>
+
+            <th scope="col" class="px-6 py-3">Email</th>
+            <th scope="col" class="px-6 py-3">Phone</th>
+            <th scope="col" class="px-6 py-3">View</th>
+          </tr>
+        </thead>
+        {%for customer in customers%}
+        <tbody>
+          <tr
+            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            >
+              {{ customer.id }}
+            </th>
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            >
+              {{ customer.first_name }} {{ customer.last_name }}
+            </th>
+
+            <td class="px-6 py-4">{{ customer.email}}</td>
+            <td class="px-6 py-4">{{ customer.phone }}</td>
+            <td class="px-6 py-4">
+              <a href="{% url 'customer' customer.id %}">View More</a>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+
+    {% endif%}
   </div>
 </section>
 {% endblock %}

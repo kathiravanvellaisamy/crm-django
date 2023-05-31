@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from .forms import SignUpForm
+from .models import Customer
 
 # Create your views here.
 def home(request):
@@ -24,7 +25,8 @@ def login_user(request):
     else:
         return render(request,'login_user.html',{})
 def dashboard(request):
-    return render(request,'dashboard.html',{})
+    customers = Customer.objects.all()
+    return render(request,'dashboard.html',{'customers':customers})
 def logout_user(request):
     logout(request)
     return redirect('home')
@@ -47,3 +49,12 @@ def register(request):
     
     return render(request,'register.html',{'form':form})
 
+def customer_profile(request,pk):
+    if request.user.is_authenticated:
+        # Look up Customer's profile
+        customer_profile = Customer.objects.get(id=pk)
+        return render(request,'customer.html',{'customer_profile':customer_profile})
+    else:
+        messages.success(request,"You have to login First!")
+        return redirect('login')
+        
