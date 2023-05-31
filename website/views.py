@@ -57,4 +57,17 @@ def customer_profile(request,pk):
     else:
         messages.success(request,"You have to login First!")
         return redirect('login')
+    
+def delete_customer(request,pk):
+    if request.user.is_authenticated:
+        delete_customer = Customer.objects.get(id=pk)
+        delete_customer.delete()
+        return redirect('dashboard')
+    else:
+        messages.success(request,"You have to login First!")
+        return redirect('login')
+    
+def add_customer(request):
+    return render(request,'add_customer.html',{})
+
         
