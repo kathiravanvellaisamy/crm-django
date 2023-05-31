@@ -18,7 +18,13 @@
     </style>
   </head>
   <body>
-    {% include 'navbar.html' %}
+    {% include 'navbar.html' %} {% if messages %} {% for message in messages %}
+    <div
+      class="bg-red-600 mx-auto container w-full lg:w-[600px] p-2 mb-2 mt-3 rounded-md text-white top-30"
+    >
+      {{ message }}
+    </div>
+    {% endfor %} {% endif %}
     <div>{% block content %} {% endblock %}</div>
   </body>
 </html>

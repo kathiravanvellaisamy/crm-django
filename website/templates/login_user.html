@@ -1,14 +1,10 @@
 {% extends 'base.html' %} {% block content %}
  
-<section class="p-8 w-full p-6 md:p-7 lg:p-8">
+<section class="px-8 w-full  md:px-7 lg:px-8">
   <div class="mx-auto w-full lg::w-[600px] md:w-[600px]">
       <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      {% if messages %} {% for message in messages %}
-    <div class="bg-red-600   p-2 mb-2 mt-3 rounded-md text-white top-30">
-      {{ message }}
-    </div>
-    {% endfor %} {% endif %}
-      <div class="mt-10 md:mt-0 lg:mt-0 w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+    
+      <div class=" md:mt-0 lg:mt-0 w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                   Sign in to your account

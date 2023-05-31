@@ -1,8 +1,19 @@
 {% extends 'base.html' %} {% block content %}
-<section class="p-8 lg:p-16 mt-10">
-  <h1 class="text-4xl lg:text-6xl text-slate-700 font-extralight">
-    Hi {{request.user.username}} Welcome back!
-  </h1>
+<section class="px-8 lg:px-16 mt-3">
+  <div
+    class="py-3 border border-slate-100 shadow-md p-3 m-1 flex flex-col lg:flex-row justify-between items-center"
+  >
+    <h1 class="text-4xl lg:text-6xl text-slate-700 font-extralight">
+      Hi {{request.user.username}} Welcome back!
+    </h1>
+
+    <a
+      class="text-gray-600 py-3 px-6 border-gray-800 border-2 hover:text-white hover:bg-gray-800"
+      href="{% url 'add_customer' %}"
+    >
+      Add Customer
+    </a>
+  </div>
   <div class="mt-5 border-t border-gray-300 py-2">
     <h1 class="text-3xl font-semibold text-orange-900 py-2">
       Customer Information
@@ -15,7 +26,7 @@
           class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
         >
           <tr>
-            <th scope="col" class="px-6 py-3">Id</th>
+            <th scope="col" class="px-6 py-3">C.Id</th>
             <th scope="col" class="px-6 py-3">Name</th>
 
             <th scope="col" class="px-6 py-3">Email</th>
