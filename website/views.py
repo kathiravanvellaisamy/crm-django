@@ -9,6 +9,8 @@ def home(request):
     return render(request,'home.html',{})
 
 def login_user(request):
+    if request.user.is_authenticated:
+        return redirect("home")
     # Check to see if logging in
     if request.method == 'POST':
         username = request.POST['username']
@@ -32,6 +34,8 @@ def logout_user(request):
     return redirect('home')
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect("home")
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -80,4 +84,16 @@ def add_customer(request):
     else:
         messages.success(request,"You have to login First!")
         return redirect('login')
-        
+
+def update_customer(request,pk):
+    if request.user.is_authenticated:
+        current_detail = Customer.objects.get(id=pk) 
+        form = AddCustomerForm(request.POST or None,instance=current_detail)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Updated Successfully!")
+            return redirect('dashboard')
+        return render(request,'update_customer.html',{'form':form})
+    else:
+        messages.success(request,"You have to login First!")
+        return redirect('login')
